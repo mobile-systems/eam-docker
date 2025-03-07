@@ -7,13 +7,13 @@
 //     Use the following PHP code to connect to PostgreSQL and select a database. Replace username with your username, password with your password, and dbname with the database name: 
 
 //below is connection to use to connect to a database on render.com
-    $host="dpg-cu57vcbv2p9s73a106i0-a.ohio-postgres.render.com";
+    $host=getenv('POSTGRES_HOST');
     $port="5432";
-    $dbname="courses_1tjm";
-    $user="root";
-    $password="gChUqp9tqaMLq3Yn8hDw9pBxjRm5s35m";
-    $dsn='pgsql:host=dpg-cu57vcbv2p9s73a106i0-a.ohio-postgres.render.com;port=5432;dbname=courses_1tjm;';
-
+    $dbname=getenv('POSTGRES_DB');
+    $user=getenv('POSTGRES_USER');
+    $password=getenv('POSTGRES_PASSWORD');
+    //$dsn='pgsql:host=dpg-cu57vcbv2p9s73a106i0-a.ohio-postgres.render.com;port=5432;dbname=courses_1tjm;';
+    $dsn='pgsql:host='.getenv('POSTGRES_HOST').';port=5432;dbname='.getenv('POSTGRES_DB').';';
 
     try{
         // echo "im in by using a PDO connection","<br>";

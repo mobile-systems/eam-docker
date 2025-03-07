@@ -9,10 +9,7 @@ RUN apt-get update && apt-get install -y \
 # Set the working directory in the container
 WORKDIR /var/www/html
 
-# Copy the current directory contents into the container at /var/www/html
-#COPY . /var/www/html
-COPY *.php /var/www/html/
-COPY view /var/www/html/view
+
 
 # Install any dependencies your PHP application may need
 # For example, if you're using Composer for dependency management:
@@ -26,6 +23,14 @@ COPY view /var/www/html/view
 
 # Adding Postgres support:
 RUN docker-php-ext-install pdo_pgsql
+
+# Copy the current directory contents into the container at /var/www/html
+#COPY . /var/www/html
+COPY *.php /var/www/html/
+COPY view /var/www/html/view
+COPY logist_web /var/www/html/logist
+RUN mkdir -p /home/mobidev/ownCloud/documents
+COPY logist /home/mobidev/ownCloud/documents/logist
 
 # Copy custom Apache configuration
 COPY apache.conf /etc/apache2/sites-available/000-default.conf
