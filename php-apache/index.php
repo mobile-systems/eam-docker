@@ -175,8 +175,9 @@ function addNewRecord($table_name,$description,$fk_courseid){
     echo "GET Method Submitted ",htmlspecialchars(print_r($_GET, true)),"<br>";
     $tablename = trim($_GET['table']);
     $value1= trim($_GET['value1']);
+    $value2= trim($_GET['value2']);
     if(!empty($tablename)&& !empty($value1)){
-            echo htmlspecialchars($tablename)," ",htmlspecialchars($value1), "<br>";
+            echo htmlspecialchars($tablename)," ",htmlspecialchars($value1)," ",htmlspecialchars($value2), "<br>";
             addNewRecord($tablename,$value1,$value2);
             print_table($tablename);
     } else{
