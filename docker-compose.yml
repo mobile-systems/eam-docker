@@ -18,6 +18,19 @@ services:
     # Add environment variables if needed
     # environment:
     #   - VARIABLE_NAME=value
+  qr-apache:
+    #image: php-apache
+    container_name: qr-apache_container
+    build:
+      context: ./qr
+      dockerfile: Dockerfile
+    environment:
+      POSTGRES_HOST: ${DB_HOST}
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "8081:80"
   db:
     image: postgres
     container_name: database_container
