@@ -238,6 +238,7 @@ function addNewRecord($table_name,$description,$fk_courseid){
 
 
     <p> <a href=".">Back to List</a></p>
+    <p> <img src="<?php echo 'http://'.getenv('QR_HOST').':'.getenv('QR_PORT').'/1.php'; ?>"></img></p>
 
 <!-- </main> -->
 </body>
