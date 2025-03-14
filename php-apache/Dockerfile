@@ -2,8 +2,11 @@
 FROM php:8.2-apache
 
 # Install required system packages and dependencies
-RUN apt-get update && apt-get install -y \
+RUN apt-get -y update && apt-get install -y \
     libpq-dev \
+    texlive-latex-base \
+    texlive-fonts-recommended texlive-fonts-extra \
+    texlive-latex-extra \
     && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory in the container
@@ -27,6 +30,7 @@ RUN docker-php-ext-install pdo_pgsql
 # Copy the current directory contents into the container at /var/www/html
 #COPY . /var/www/html
 COPY *.php /var/www/html/
+COPY *.tex /var/www/html/
 COPY view /var/www/html/view
 COPY logist_web /var/www/html/logist
 RUN mkdir -p /home/mobidev/ownCloud/documents

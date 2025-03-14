@@ -12,7 +12,6 @@
     $dbname=getenv('POSTGRES_DB');
     $user=getenv('POSTGRES_USER');
     $password=getenv('POSTGRES_PASSWORD');
-    //$dsn='pgsql:host=dpg-cu57vcbv2p9s73a106i0-a.ohio-postgres.render.com;port=5432;dbname=courses_1tjm;';
     $dsn='pgsql:host='.getenv('POSTGRES_HOST').';port=5432;dbname='.getenv('POSTGRES_DB').';';
 
     try{
@@ -27,27 +26,6 @@
         exit();
     }
 
-
-//below is connection to use to connect to a local database on my computer
-// $host="localhost";
-// $port="5432";
-// $dbname="courses";
-// $user="postgres";
-// $password="root";
-// $dsn='pgsql:host=localhost;port=5432;dbname=courses';
-
-
-// try{
-//     // echo "im in by using a PDO connection","<br>";
-//     // $myPDO = new PDO('pgsql:host=localhost;dbname=courses', 'postgres', 'Buster');
-//     $myPDO = new PDO($dsn,$user,$password);
-    
-// } catch (PDOException $e){
-//     $error ="Database Error: ";
-//     $error .= $e->getMessage();
-//     include('view/error.php');
-//     exit();
-// }
 // $sql="SELECT * FROM assignments";
 // $result = $myPDO->query($sql);
 // // $row = $result->fetch(PDO::FETCH_ASSOC);
