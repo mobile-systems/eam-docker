@@ -6,6 +6,7 @@ services:
       context: ./php-apache
       dockerfile: Dockerfile
     environment:
+      TZ: "Europe/Moscow"
       POSTGRES_HOST: ${DB_HOST}
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_USER: ${DB_USER}
@@ -27,6 +28,7 @@ services:
       context: ./qr
       dockerfile: Dockerfile
     environment:
+      TZ: "Europe/Moscow"
       POSTGRES_HOST: ${DB_HOST}
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_USER: ${DB_USER}
@@ -45,6 +47,7 @@ services:
       context: ./database
       dockerfile: Dockerfile
     environment:
+      TZ: "Europe/Moscow"
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
@@ -76,6 +79,7 @@ services:
     container_name: pgadmin_container
     image: dpage/pgadmin4:9.1
     environment:
+      TZ: "Europe/Moscow"
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
       PGADMIN_CONFIG_SERVER_MODE: "False"
